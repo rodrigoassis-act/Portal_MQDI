@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ONS.PortalMQDI.Data\ONS.PortalMQDI.Data.csproj" />
+    <ProjectReference Include="..\ONS.PortalMQDI.Models\ONS.PortalMQDI.Models.csproj" />
+    <ProjectReference Include="..\ONS.PortalMQDI.Shared\ONS.PortalMQDI.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,65 @@
+﻿<div class="card">
+    <table class="table table-hover table-striped rdx-table" style="border:0 !important;">
+        <tbody>
+            <tr class="header-row">
+                <th class="text-left fonte-campo-relatorio">Identificador ONS :</th>
+                <th class="text-left fonte-campo-relatorio">Descrição:</th>
+                <th class="text-left fonte-campo-relatorio">Indicador:</th>
+                <th class="text-left fonte-campo-relatorio">Instalação:</th>
+                <th class="text-left fonte-campo-relatorio">Ligação SSC:</th>
+                <th class="text-left fonte-campo-relatorio">Endereço do Protocolo:</th>
+            </tr>
+            <tr>
+                <td class="text-left fonte-campo-relatorio">
+                    {identificador}
+                </td>
+                <td class="text-left fonte-campo-relatorio">
+                    {descricao}
+                </td>
+                <td class="text-left fonte-campo-relatorio">
+                    {indicador}
+                </td>
+                <td class="text-left fonte-campo-relatorio">
+                    {instalacao}
+                </td>
+                <td class="text-left fonte-campo-relatorio">
+                    {ligacaoSSC}
+                </td>
+                <td class="text-left fonte-campo-relatorio">
+                    {endProtocolo}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-hover table-striped rdx-table" style="border:0 !important;">
+        <tbody>
+            <tr class="header-row">
+                <th class="text-left fonte-campo-relatorio">Anual(%):</th>
+                <th class="text-left fonte-campo-relatorio">Mensal(%):</th>
+            </tr>
+            <tr>
+                <td class="text-left fonte-campo-relatorio" {fragAnual}>
+                    {valorAnual}
+                </td>
+                <td class="text-left fonte-campo-relatorio" {fragMensal}>
+                    {valorMensal}
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div class="panel">
+        <div>
+            Contestação:
+        </div>
+        <div class="box-ons">
+            {constestacaoAnalista}
+        </div>
+        <div>
+            Comentário ONS:
+        </div>
+        <div class="box-ons">
+            {constestacaoOns}
+        </div>
+    </div>
+</div>

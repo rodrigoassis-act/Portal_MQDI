@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SiteMap
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Title="Portal MQDI" Description="Menu de acesso ao Portal MQDI" Url="" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Sistema">
+  <Childs>
+    <SiteMap Title="Acompanhamento geral de indicadores" Description="Tela de consulta ao acompanhamento geral de indicadores" Url="./acompanhamento-geral-indicadores" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar a tela de acompanhamento geral indicadores" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Relatórios Mensais" Description="Tela de downloads de relatórios gerados pelo sistema" Url="./baixar-relatorio-mensal" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar a tela de download de relatorios" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Calendário do sistema" Description="Tela de acesso ao calendário do sistema" Url="./calendario-sistema" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar a tela de calendário do sistema" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Consulta contestações" Description="Tela de consulta as contestações dos agentes" Url="./consulta-contestacoes" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar a tela de consulta de contestações" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Consulta Indicadores" Description="Tela de consulta aos indicadores" Url="./consulta-indicadores" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar a tela de consulta de indicadores" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Supervisão em Tempo Real" Description="Tela de supervisão em tempo real" Url="./supervisao-tempo-real" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar Tela de supervisão em tempo real" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Parâmetros do sistema" Description="Tela de consulta aos parâmetros do sistema" Url="./parametros-sistema" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar a tela de parâmetros do sistema" />
+      </Definicoes>
+    </SiteMap>
+    <SiteMap Title="Consulta de Indicadores Diário" Description="Tela de consulta de Indicadores Diário" Url="./consulta-indicadores-diario" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar consulta de indicadores diário" />
+      </Definicoes>
+    </SiteMap>
+
+    <SiteMap Title="Consultar Medidas Não Supervisionadas" Description="Tela de geração de consultar Medidas Não Supervisionadas" Url="./consulta-medida-supervisionada" CodAplication="PortalMQDI" NodeOrder="1" Published="true" Enabled="true" PadraoBrowser="IE=Edge,chrome=1" FlgPublico="false" TipoRequisicao="POP" TipoSitemap="Tradicional">
+      <Childs />
+      <Definicoes>
+        <Definicao Nome="MQDI_Acessar consultar medidas não supervisionadas" />
+      </Definicoes>
+    </SiteMap>
+  </Childs>
+  <Definicoes />
+</SiteMap>

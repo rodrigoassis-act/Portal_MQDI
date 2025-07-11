@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="QUERY_BUSCAR_AGENTE" xml:space="preserve">
+    <value>SELECT DISTINCT a.nom_curto, r.anomes_referencia,a.nom_longo,a.age_mrid, COALESCE(r.age_mrid, r.mrid) as mrid
+    FROM tb_contestacao c
+    INNER JOIN tb_resultadoindicador r ON c.id_resultadoindicador = r.id_resultadoindicador
+    INNER JOIN tb_agente a ON (r.age_mrid = a.age_mrid AND r.age_mrid IS NOT NULL) OR (r.mrid = a.age_mrid AND r.age_mrid IS NULL)
+    {filtroAnoMes}
+    ORDER BY COALESCE(r.age_mrid, r.mrid) DESC</value>
+  </data>
+  <data name="QUERY_BUSCAR_AGENTE_CONSULTAR_MEDIDA" xml:space="preserve">
+    <value>select distinct a.* from tb_agente a
+    inner join tb_grandeza g on a.age_mrid=g.age_mrid and a.anomes_referencia=g.anomes_referencia
+    Where g.cod_lscinf='' and g.anomes_referencia='{anoMes}' {filtroAgentes}</value>
+  </data>
+  <data name="QUERY_BUSCAR_AGENTE_INDICADOR" xml:space="preserve">
+    <value>select distinct a.* from tb_agente a
+    inner join tb_resultadoindicador ri on ri.mrid=a.age_mrid and ri.anomes_referencia=a.anomes_referencia
+    where a.anomes_referencia='{anoMes}' {filtroAgentes}</value>
+  </data>
+  <data name="QUERY_BUSCAR_CONSULTA_INDICADOR_INSTALACAO_POR_FILTRO" xml:space="preserve">
+    <value>select tr.nom_tprecurso, i.nom_curto, i.nom_longo, i.ido_ons, ri.*, ti.nom_tpindicador, ti.cod_tpindicador, i.ins_mrid, c.dsc_contestacao, rc.cmn_resultado   
+    from tb_instalacao i 
+    inner join tb_resultadoindicador ri on i.ins_mrid=ri.mrid and i.anomes_referencia=ri.anomes_referencia
+    inner join tb_tprecurso tr on tr.id_tprecurso=ri.id_tprecurso
+    inner join tb_tpindicador ti on ti.id_tpindicador = ri.id_tpindicador
+    inner join tb_agente a on ri.age_mrid=a.age_mrid and ri.anomes_referencia=a.anomes_referencia
+    left join tb_contestacao c on c.id_resultadoindicador=ri.id_resultadoindicador
+    left join tb_resultadocontestacao rc on rc.id_contestacao = c.id_contestacao
+    where ri.anomes_referencia in('{datasString}') and a.age_mrid like '{ageMrid}' {filtroTipoIndicador} {filtroFragViolao} {filtroIsContestacao}
+    order by tr.cod_tprecurso, i.nom_curto, i.anomes_referencia DESC</value>
+  </data>
+  <data name="QUERY_BUSCAR_INSTALACAO_RANGE_DATA" xml:space="preserve">
+    <value>select a.ido_ons IdAgente, a.nom_longo NomeAgente, g.cos_id CentroOperacao, i.nom_longo NomeInstalacao, i.ido_ons IdInstalacao, g.ido_ons Id_ponto, g.nom_enderecofisico Endereco,
+    g.cod_lscinf UTRCD, ri.val_mensal Disponibilidade, g.anomes_referencia, rie.flg_expurgoestadooperativo ExpurgoEstadoOperativo, rie.flg_expurgoproblemapi ExpurgoHistoricoPI,
+	ri.val_anual IndiceAnual, ri.flg_violacaoanual FlagViolacaoAnual
+    from tb_grandeza g 
+    inner join tb_instalacao i on g.ins_mrid=i.ins_mrid and g.anomes_referencia=i.anomes_referencia
+    inner join tb_resultadoindicador ri on g.grd_mrid=ri.mrid and g.anomes_referencia=ri.anomes_referencia
+    inner join tb_resultadoindicadorexpurgo rie on ri.id_resultadoindicador=rie.id_resultadoindicador
+    inner join tb_agente a on ri.age_mrid=a.age_mrid and ri.anomes_referencia=a.anomes_referencia
+    where ri.anomes_referencia in('{datasString}') and ri.id_tpindicador=2 order by NomeAgente,NomeInstalacao,Id_ponto, g.anomes_referencia DESC</value>
+  </data>
+  <data name="QUERY_BUSCAR_INSTALACAO_RECURSO" xml:space="preserve">
+    <value>SELECT 
+tr.nom_tprecurso, i.nom_curto, i.nom_longo, i.ido_ons, ri.*, 
+ti.nom_tpindicador, ti.cod_tpindicador, i.ins_mrid, c.dsc_contestacao, rc.cmn_resultado, c.id_contestacao, rc.id_tpresultadocontestacao,
+(
+    SELECT COUNT(*)
+    FROM tb_resultadoindicador r
+    INNER JOIN tb_grandeza g ON g.grd_mrid=r.mrid AND g.anomes_referencia=r.anomes_referencia
+    LEFT JOIN tb_equipamento e ON g.ter_mrid = e.ter_mrid AND g.anomes_referencia=e.anomes_referencia
+    LEFT JOIN tb_contestacao c ON c.id_resultadoindicador=r.id_resultadoindicador
+    WHERE g.ins_mrid= i.ins_mrid AND r.anomes_referencia= i.anomes_referencia AND c.dsc_contestacao IS NOT NULL and r.id_tpindicador = ri.id_tpindicador and r.cos_id = ri.cos_id 
+) AS contagemRecurso
+FROM tb_instalacao i 
+INNER JOIN tb_resultadoindicador ri ON i.ins_mrid=ri.mrid AND i.anomes_referencia=ri.anomes_referencia
+INNER JOIN tb_tprecurso tr ON tr.id_tprecurso=ri.id_tprecurso
+INNER JOIN tb_tpindicador ti ON ti.id_tpindicador = ri.id_tpindicador
+INNER JOIN tb_agente a ON ri.age_mrid=a.age_mrid AND ri.anomes_referencia=a.anomes_referencia
+LEFT JOIN tb_contestacao c ON c.id_resultadoindicador=ri.id_resultadoindicador
+LEFT JOIN tb_resultadocontestacao rc ON rc.id_contestacao = c.id_contestacao
+WHERE ri.anomes_referencia IN (@datasString) AND a.age_mrid LIKE @ageMrid
+AND (@tipoIndicador IS NULL OR ti.cod_tpindicador = @tipoIndicador)
+AND (@fragViolaoValue IS NULL OR ri.flg_violacaomensal = @fragViolaoValue)
+ORDER BY tr.cod_tprecurso, i.nom_curto, i.anomes_referencia DESC;</value>
+  </data>
+  <data name="QUERY_BUSCAR_INSTALACAO_VIEW_POR_FILTRO" xml:space="preserve">
+    <value>select tr.nom_tprecurso, i.nom_curto, i.nom_longo, i.ido_ons, ri.*, ti.nom_tpindicador, ti.cod_tpindicador  
+    from tb_instalacao i 
+    inner join tb_resultadoindicador ri on i.ins_mrid=ri.mrid and i.anomes_referencia=ri.anomes_referencia
+    inner join tb_tprecurso tr on tr.id_tprecurso=ri.id_tprecurso
+    inner join tb_tpindicador ti on ti.id_tpindicador = ri.id_tpindicador
+    inner join tb_agente a on ri.age_mrid=a.age_mrid and ri.anomes_referencia=a.anomes_referencia
+    where ri.anomes_referencia in('{datasString}') and a.age_mrid like '{ageMrid}' 
+    {filtroTipoIndicador}
+{filtroFragViolao}
+    order by tr.cod_tprecurso, i.nom_curto, i.anomes_referencia DESC</value>
+  </data>
+  <data name="QUERY_BUSCAR_VIEW_POR_FILTRO" xml:space="preserve">
+    <value>select tr.nom_tprecurso, a.nom_curto, a.nom_longo, a.ido_ons, ri.*, ti.nom_tpindicador, ti.cod_tpindicador  
+    from tb_agente a 
+    inner join tb_resultadoindicador ri on a.age_mrid=ri.mrid and a.anomes_referencia=ri.anomes_referencia
+    inner join tb_tprecurso tr on tr.id_tprecurso=ri.id_tprecurso
+    inner join tb_tpindicador ti on ti.id_tpindicador = ri.id_tpindicador 
+    where ri.anomes_referencia in('{datas}')
+    and a.age_mrid like '{ageMrid}'
+    {filtroTipoIndicador}
+    {filtroFragViolao}
+    order by tr.cod_tprecurso, a.nom_curto, a.anomes_referencia DESC</value>
+  </data>
+  <data name="QUERY_BUSCAR_VIEW_POR_FILTRO_CONSULTAINDICADORAGENTE" xml:space="preserve">
+    <value>select tr.nom_tprecurso, a.nom_curto, a.nom_longo, a.ido_ons, ri.*, ti.nom_tpindicador, ti.cod_tpindicador, c.dsc_contestacao, rc.cmn_resultado, c.id_contestacao, rc.id_tpresultadocontestacao
+    from tb_agente a 
+    inner join tb_resultadoindicador ri on a.age_mrid=ri.mrid and a.anomes_referencia=ri.anomes_referencia
+    inner join tb_tprecurso tr on tr.id_tprecurso=ri.id_tprecurso
+    inner join tb_tpindicador ti on ti.id_tpindicador = ri.id_tpindicador
+    left join tb_contestacao c on c.id_resultadoindicador=ri.id_resultadoindicador
+    left join tb_resultadocontestacao rc on rc.id_contestacao = c.id_contestacao
+    where ri.anomes_referencia = '{dataString}' and a.age_mrid like '{ageMrid}'
+    {filtroTipoIndicador}
+    {filtroFragViolao}
+    {filtroContestacao}
+    order by tr.cod_tprecurso, a.nom_curto, a.anomes_referencia DESC</value>
+  </data>
+  <data name="QUERY_BUSCAR_VIEW_POR_FILTRO_RESULTADOINDICADOR" xml:space="preserve">
+    <value>SELECT DISTINCT 
+        g.cod_lscinf, 
+        g.age_mrid AS age_grandeza, 
+        u.age_mrid AS agedono, 
+        u.ido_ons, 
+        u.ido_ons as UTR_CD,
+        IIF(g.age_mrid=u.age_mrid, '*', '') AS dono, 
+        ur.*,  
+        ti.cod_tpindicador
+    FROM  
+        tb_grandeza g
+    INNER JOIN  
+        tb_utrcd u 
+    ON 
+        g.cod_lscinf = u.cod_lscinf AND g.anomes_referencia = u.anomes_referencia
+    INNER JOIN  
+        tb_resultadoindicador ur
+    ON 
+        u.utrcd_mrid = ur.mrid AND u.anomes_referencia = ur.anomes_referencia
+    INNER JOIN  
+        tb_tpindicador ti 
+    ON 
+        ti.id_tpindicador = ur.id_tpindicador
+    WHERE 
+        g.anomes_referencia IN ('{datasString}') AND g.age_mrid = '{ageMrid}' AND g.cod_lscinf != '' {filtroTipoIndicador} {filtroFragViolao}
+    ORDER BY ur.anomes_referencia, UTR_CD</value>
+  </data>
+  <data name="QUERY_BUSCAR_VIEW_SSCl_POR_FILTRO" xml:space="preserve">
+    <value>SELECT DISTINCT 
+        u.ido_ons AS UTR_CD, 
+        u.cod_lscinf, 
+        ur.*,  
+        ti.cod_tpindicador, 
+        c.dsc_contestacao, 
+        rc.cmn_resultado, 
+        c.id_contestacao, 
+        rc.id_tpresultadocontestacao,
+        IIF(gr.age_mrid=u.age_mrid, '*', '') as dono
+    FROM  
+        tb_resultadoindicador ur
+    INNER JOIN  
+        tb_utrcd u 
+    ON 
+        u.utrcd_mrid = ur.mrid AND u.anomes_referencia = ur.anomes_referencia
+    INNER JOIN  
+        tb_tpindicador ti 
+    ON 
+        ti.id_tpindicador = ur.id_tpindicador
+    LEFT JOIN 
+        tb_contestacao c 
+    ON 
+        c.id_resultadoindicador = ur.id_resultadoindicador
+    LEFT JOIN 
+        tb_resultadocontestacao rc 
+    ON 
+        rc.id_contestacao = c.id_contestacao
+    INNER JOIN
+        (SELECT DISTINCT  
+            g.cod_lscinf, 
+            g.anomes_referencia, 
+            g.age_mrid 
+        FROM 
+            tb_grandeza g
+        WHERE 
+            g.age_mrid = '{ageMrid}' AND g.cod_lscinf != '' AND g.anomes_referencia IN ('{datasString}')) AS gr 
+    ON 
+        gr.cod_lscinf = u.cod_lscinf AND gr.anomes_referencia = u.anomes_referencia {filtroTipoIndicador} {filtroFragViolao} {filtroIsContestacao}
+    ORDER BY ur.anomes_referencia, UTR_CD</value>
+  </data>
+  <data name="QUERY_CONSULTAR_RECURSOS" xml:space="preserve">
+    <value>select g.ido_ons, g.cod_lscinf, g.dsc_grandeza, g.nom_enderecofisico, r.*, e.tprede, c.dsc_contestacao, rc.cmn_resultado, rc.id_tpresultadocontestacao, c.id_contestacao, s.*
+    from tb_resultadoindicador r
+    inner join tb_grandeza g on g.grd_mrid=r.mrid and g.anomes_referencia=r.anomes_referencia
+    left join tb_equipamento e on g.ter_mrid =e.ter_mrid and g.anomes_referencia=e.anomes_referencia
+    left join tb_contestacao c on c.id_resultadoindicador=r.id_resultadoindicador
+    left join tb_resultadocontestacao rc on rc.id_contestacao =c.id_contestacao
+    left join tb_resultadoindicador_sgi ris on ris.id_resultadoindicador=r.id_resultadoindicador
+    left join tb_sgi s on s.num_ons=ris.num_ons and s.num_sequenciasgi=ris.num_sequenciasgi
+    where g.ins_mrid= '{idInstalacao}' and r.anomes_referencia= '{anoMes}' 
+    and r.id_tpindicador= '{idIndicador}' and r.cos_id= '{idCos}' and g.age_mrid='{ageMrid}' {filtroIsContestacao}</value>
+  </data>
+  <data name="QUERY_CONSULTA_INDICADOR_AGENTE_VIEW_POR_FILTRO" xml:space="preserve">
+    <value>select tr.nom_tprecurso, a.nom_curto, a.nom_longo, a.ido_ons, ri.*, ti.nom_tpindicador, ti.cod_tpindicador, c.dsc_contestacao, rc.cmn_resultado, c.id_contestacao,
+rc.id_tpresultadocontestacao
+from tb_agente a 
+inner join tb_resultadoindicador ri on a.age_mrid=ri.mrid and a.anomes_referencia=ri.anomes_referencia
+inner join tb_tprecurso tr on tr.id_tprecurso=ri.id_tprecurso
+inner join tb_tpindicador ti on ti.id_tpindicador = ri.id_tpindicador
+left join tb_contestacao c on c.id_resultadoindicador=ri.id_resultadoindicador
+left join tb_resultadocontestacao rc on rc.id_contestacao = c.id_contestacao
+where ri.anomes_referencia = '{data}' and a.age_mrid in ('{agentes}')
+{filtroTipoIndicador}
+{filtroFragViolao}
+{filtroContestacao}
+order by tr.cod_tprecurso, a.nom_curto, a.anomes_referencia DESC</value>
+  </data>
+  <data name="QUERY_CONSULTA_INDICADOR_SSCL" xml:space="preserve">
+    <value>SELECT DISTINCT u.ido_ons AS UTR_CD, 
+               u.cod_lscinf, 
+               ur.*,  
+               ti.cod_tpindicador, 
+               c.dsc_contestacao, 
+               rc.cmn_resultado, 
+               c.id_contestacao, 
+               rc.id_tpresultadocontestacao
+FROM tb_resultadoindicador ur
+INNER JOIN tb_utrcd u ON u.utrcd_mrid=ur.mrid AND u.anomes_referencia=ur.anomes_referencia
+INNER JOIN tb_tpindicador ti ON ti.id_tpindicador = ur.id_tpindicador
+LEFT JOIN tb_contestacao c ON c.id_resultadoindicador=ur.id_resultadoindicador
+LEFT JOIN tb_resultadocontestacao rc ON rc.id_contestacao = c.id_contestacao
+INNER JOIN (SELECT DISTINCT g.cod_lscinf, 
+                            g.anomes_referencia,
+                            g.age_mrid 
+            FROM tb_grandeza g
+            WHERE g.age_mrid IN ('{agentes}') 
+            AND g.cod_lscinf IS NOT NULL 
+            AND g.anomes_referencia IN ('{datasString}')) AS gr 
+ON gr.cod_lscinf=u.cod_lscinf AND gr.anomes_referencia=u.anomes_referencia
+{tipoIndicadorCondition}
+{fragViolaoCondition}
+{isContestacaoCondition}
+ORDER BY ur.anomes_referencia, UTR_CD</value>
+  </data>
+  <data name="QUERY_CONTESTACAO_INSTALACAO_RECURSO" xml:space="preserve">
+    <value>WITH SubQuery_Recurso AS (
+    SELECT g.*, 
+        c.dsc_contestacao as recursoAnalistaContestacao,
+        rc.cmn_resultado as recursoOnsContestacao,
+        c.id_contestacao as recursoOnsIdContestacao,
+        rc.id_tpresultadocontestacao as recursoOnsStatus,
+        r.id_tprecurso,
+        r.flg_violacaoanual as recursoFragAnual,
+        r.flg_violacaomensal as recursoFragMensal,
+        r.val_anual as recursoValorMensal,
+        r.val_mensal as recursoValorAnual,
+        r.id_resultadoindicador as recursoIdResultadoIndicador,
+        r.id_tpindicador
+    FROM tb_resultadoindicador r
+    INNER JOIN tb_grandeza g ON g.grd_mrid=r.mrid AND g.anomes_referencia=r.anomes_referencia
+    LEFT JOIN tb_equipamento e ON g.ter_mrid = e.ter_mrid AND g.anomes_referencia=e.anomes_referencia
+    LEFT JOIN tb_contestacao c ON c.id_resultadoindicador=r.id_resultadoindicador
+    LEFT JOIN tb_resultadocontestacao rc ON rc.id_contestacao = c.id_contestacao
+    WHERE c.dsc_contestacao IS NOT NULL
+)
+
+SELECT
+    i.ins_mrid,
+    i.nom_curto,
+    i.nom_longo,
+    ri.*,
+    sub_r.dsc_grandeza,
+    sub_r.ido_ons,
+    sub_r.tip_grandeza,
+    sub_r.tprede,
+    sub_r.cod_lscinf,
+    sub_r.nom_enderecofisico,
+    sub_r.recursoAnalistaContestacao,
+    sub_r.recursoOnsContestacao,
+    sub_r.recursoOnsStatus,
+    sub_r.recursoFragAnual,
+    sub_r.recursoFragMensal,
+    sub_r.recursoValorMensal,
+    sub_r.recursoValorAnual,
+    sub_r.recursoOnsIdContestacao,
+    sub_r.recursoIdResultadoIndicador,
+    c.dsc_contestacao as instalacaoAnalistaContestacao,
+    ti.nom_tpindicador,
+    ti.cod_tpindicador,
+    rc.cmn_resultado as instalacaoOnsContestacao,
+    c.id_contestacao as instalacaoOnsIdContestacao,
+    rc.id_tpresultadocontestacao as instalacaoOnsStatus
+FROM tb_instalacao i 
+INNER JOIN tb_resultadoindicador ri ON i.ins_mrid=ri.mrid AND i.anomes_referencia=ri.anomes_referencia
+LEFT JOIN tb_contestacao c ON c.id_resultadoindicador = ri.id_resultadoindicador
+INNER JOIN tb_tpindicador ti ON ti.id_tpindicador = ri.id_tpindicador
+INNER JOIN tb_agente a ON ri.age_mrid=a.age_mrid AND ri.anomes_referencia=a.anomes_referencia
+LEFT JOIN SubQuery_Recurso sub_r ON sub_r.ins_mrid = i.ins_mrid and sub_r.anomes_referencia = ri.anomes_referencia and sub_r.id_tpindicador = ri.id_tpindicador
+LEFT JOIN tb_resultadocontestacao rc ON rc.id_contestacao = c.id_contestacao
+WHERE 
+    ri.anomes_referencia = '{AnoMes}' AND a.age_mrid IN ('{agentesString}') AND (c.dsc_contestacao IS NOT NULL OR sub_r.recursoAnalistaContestacao IS NOT NULL)
+ORDER BY i.ins_mrid;</value>
+  </data>
+  <data name="QUERY_EXPORTAR_INSTALACAO" xml:space="preserve">
+    <value>WITH CTE_Instalacao AS (
+    SELECT 
+        tr.nom_tprecurso, 
+        i.nom_curto, 
+        i.nom_longo, 
+        i.ido_ons, 
+        ri.id_resultadoindicador AS ri_id_resultadoindicador,
+        ri.cos_id AS ri_cos_id,
+        ri.mrid AS ri_mrid,
+        ti.nom_tpindicador AS ti_nom_tpindicador, 
+        ti.cod_tpindicador AS ti_cod_tpindicador,
+        i.ins_mrid, 
+        ri.anomes_referencia,
+        a.age_mrid,
+        ri.id_tpindicador,
+        ri.cos_id,
+        ri.val_anual as instalacaoValorAnual,
+        ri.val_mensal as instalacaoValorMensal,
+        rc.cmn_resultado as instalacaoONS,
+        c.dsc_contestacao as instalacaoAnalista,
+        rc.id_tpresultadocontestacao as instalacaoStatusContestacao
+    FROM tb_instalacao i 
+    INNER JOIN tb_resultadoindicador ri ON i.ins_mrid=ri.mrid AND i.anomes_referencia=ri.anomes_referencia
+    INNER JOIN tb_tprecurso tr ON tr.id_tprecurso=ri.id_tprecurso
+    INNER JOIN tb_tpindicador ti ON ti.id_tpindicador = ri.id_tpindicador
+    INNER JOIN tb_agente a ON ri.age_mrid=a.age_mrid AND ri.anomes_referencia=a.anomes_referencia
+    LEFT JOIN tb_contestacao c ON c.id_resultadoindicador=ri.id_resultadoindicador
+    LEFT JOIN tb_resultadocontestacao rc ON rc.id_contestacao = c.id_contestacao
+),
+
+CTE_Recurso AS (
+    SELECT 
+        g.ins_mrid, 
+        g.cod_lscinf, 
+        g.dsc_grandeza, 
+        g.nom_enderecofisico, 
+        g.ido_ons, 
+        r.id_resultadoindicador AS r_id_resultadoindicador,
+        r.cos_id AS r_cos_id,
+        r.mrid AS r_mrid,
+        e.tprede AS e_tprede,
+        r.anomes_referencia,
+        r.id_tpindicador,
+        r.val_anual as recursoValorAnual,
+        r.val_mensal as recursoValorMensal,
+        rc.cmn_resultado as recursoONS,
+        c.dsc_contestacao as recursoAnalista,
+        rc.id_tpresultadocontestacao as recursoStatusContestacao
+    FROM tb_resultadoindicador r
+    INNER JOIN tb_grandeza g ON g.grd_mrid=r.mrid AND g.anomes_referencia=r.anomes_referencia
+    LEFT JOIN tb_equipamento e ON g.ter_mrid =e.ter_mrid AND g.anomes_referencia=e.anomes_referencia
+    LEFT JOIN tb_contestacao c ON c.id_resultadoindicador= r.id_resultadoindicador
+    LEFT JOIN tb_resultadocontestacao rc ON rc.id_contestacao = c.id_contestacao
+)
+
+SELECT
+    cr.r_id_resultadoindicador,
+    ci.nom_curto, ci.nom_longo, 
+    ci.ti_cod_tpindicador,
+    ci.cos_id,
+    ci.instalacaoValorAnual, 
+    ci.instalacaoValorMensal,
+    cr.recursoValorAnual, 
+    cr.recursoValorMensal,
+    cr.dsc_grandeza,
+    cr.cod_lscinf as lscinf,
+    cr.ido_ons as grandeza,
+    cr.e_tprede,
+    cr.nom_enderecofisico,
+    cr.recursoAnalista,
+    cr.recursoONS,
+    cr.recursoStatusContestacao,
+    ci.instalacaoAnalista,
+    ci.instalacaoONS,
+    ci.instalacaoStatusContestacao,
+    ci.age_mrid
+FROM CTE_Instalacao ci
+LEFT JOIN CTE_Recurso cr ON ci.ins_mrid = cr.ins_mrid  AND cr.anomes_referencia = ci.anomes_referencia AND cr.id_tpindicador= ci.id_tpindicador AND cr.r_cos_id= ci.cos_id
+WHERE 
+    ci.anomes_referencia = '{anoMes}' AND ci.age_mrid IN ('{agentesString}')</value>
+  </data>
+  <data name="QUERY_FILTRAR_AGENTES_SCADA" xml:space="preserve">
+    <value>select distinct g.age_mrid age_grandeza, u.age_mrid agedono, 
+    IIF(g.age_mrid=u.age_mrid,u.ido_ons+'*',u.ido_ons+'') ido_ons, 
+    IIF(g.age_mrid=u.age_mrid,g.cod_lscinf+'*',g.cod_lscinf+'') cod_lscinf 
+    from tb_grandeza g
+    inner join tb_utrcd u on g.cod_lscinf=u.cod_lscinf and g.anomes_referencia=u.anomes_referencia
+    where g.anomes_referencia='{anoMesFormatado}' and g.age_mrid='{codAgente}' and g.cod_lscinf != ''</value>
+  </data>
+  <data name="QUERY_GERAR_CALENDARIO" xml:space="preserve">
+    <value>SELECT DISTINCT anomes_referencia FROM tb_resultadoindicador where anomes_referencia='{anoMes}' and cos_id like '%{centro}%'</value>
+  </data>
+  <data name="QUERY_INSTALACAO_CONSULTAR_MEDIDA" xml:space="preserve">
+    <value>select i.ido_ons IdInstalacao, i.nom_curto Instalacao, g.cos_id, g.ido_ons IdPonto, g.dsc_grandeza, g.tprede, g.age_mrid from tb_grandeza g
+    inner join tb_instalacao i on i.ins_mrid=g.ins_mrid and i.anomes_referencia=g.anomes_referencia
+    Where g.anomes_referencia='{anoMes}' and g.cod_lscinf='' and g.age_mrid In ('{ageMrid}')
+    order by Instalacao, g.cos_id, g.dsc_grandeza</value>
+  </data>
+  <data name="QUERY_INSTALACAO_CONSULTAR_MEDIDA_LIST" xml:space="preserve">
+    <value>select i.ido_ons IdInstalacao, i.nom_curto Instalacao, g.cos_id, g.ido_ons IdPonto, g.dsc_grandeza, g.tprede, g.age_mrid from tb_grandeza g
+    inner join tb_instalacao i on i.ins_mrid=g.ins_mrid and i.anomes_referencia=g.anomes_referencia
+    Where g.anomes_referencia='{anoMes}' and g.cod_lscinf='' and g.age_mrid In ({ageMridList})
+    order by Instalacao, g.cos_id, g.dsc_grandeza</value>
+  </data>
+  <data name="QUERY_RESULTADO_DIARIO_DCD" xml:space="preserve">
+    <value>SELECT DISTINCT u.ido_ons AS UTR_CD, u.cod_lscinf, ur.*, ti.cod_tpindicador,IIF(gr.age_mrid=u.age_mrid, '*', '') as dono
+FROM  tb_resultadodiario ur
+INNER JOIN  tb_utrcd u ON u.utrcd_mrid = ur.mrid AND u.anomes_referencia = ur.anomes_referencia
+INNER JOIN  tb_tpindicador ti ON ti.id_tpindicador = ur.id_tpindicador
+INNER JOIN(SELECT DISTINCT g.cod_lscinf, g.anomes_referencia, g.age_mrid FROM tb_grandeza g
+WHERE g.age_mrid = '{agente}' AND g.cod_lscinf != '') AS gr  
+ON gr.cod_lscinf = u.cod_lscinf AND gr.anomes_referencia = u.anomes_referencia
+Where ur.dat_resultado = '{data}'
+ORDER BY ur.anomes_referencia, UTR_CD</value>
+  </data>
+  <data name="QUERY_RESULTADO_DIARIO_DRSC" xml:space="preserve">
+    <value>SELECT rd.id_resultadodiario, i.nom_curto,         g.ido_ons,         g.dsc_grandeza,         g.tprede,         cod_lscinf,         g.nom_enderecofisico,         rd.val_dispdiario,         rd.flg_dispdiario FROM tb_resultadodiario rd INNER JOIN tb_grandeza g ON g.grd_mrid = rd.mrid AND g.anomes_referencia = rd.anomes_referencia INNER JOIN tb_instalacao i ON i.ins_mrid = g.ins_mrid AND i.anomes_referencia = g.anomes_referencia WHERE rd.dat_resultado = '{data}' AND g.age_mrid = '{agente}' AND rd.id_tprecurso = 4 AND rd.id_tpindicador = 2  ORDER BY i.nom_curto, g.ido_ons;</value>
+  </data>
+  <data name="QUERY_SUPERVISAO_TEMPO_REAL" xml:space="preserve">
+    <value>SELECT DISTINCT g.nom_enderecofisico, g.ido_ons
+    FROM tb_grandeza g
+    INNER JOIN tb_resultadoindicador ri on g.age_mrid = ri.age_mrid
+    WHERE g.age_mrid = '{codAgente}' AND g.anomes_referencia = '{dataFormatada}' AND ri.id_tpindicador = 2 AND g.ido_ons is not null</value>
+  </data>
+  <data name="QUERY_TODOS_AGENTE_POR_GRANDEZA" xml:space="preserve">
+    <value>SELECT DISTINCT a.* FROM tb_agente a
+    INNER JOIN tb_grandeza g 
+    ON a.age_mrid = g.age_mrid AND a.anomes_referencia = g.anomes_referencia
+    {filtroAnoMesReferencia}
+    {filtroAgentes}
+    ORDER BY a.nom_curto</value>
+  </data>
+</root>

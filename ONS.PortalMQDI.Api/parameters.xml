@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <parameter name="CDNNavegacaoGlobal" description="Caminho do CDN para a navegação global" defaultValue="https://dsvnavegacaoglobal.ons.org.br/">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_CDNNavegacaoGlobal" scope="appsettings.json" />
+  </parameter>
+  <parameter name="POPPassword" description="Senha do usuário do Pool do POP" defaultValue="">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_poppassword" scope="appsettings.json" />
+  </parameter>
+  <parameter name="POPUserName" description="Usuário do Pool do POP" defaultValue="_servicepopteste">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_popusername" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebBaseServiceURL" description="URL base usada para montar os caminhos ddos serviços na aplicação" defaultValue="http://local.radixeng.ons/ONS.PortalMQDI.WebService/api/">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_PortalMQDIApi" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebService.Origin" description="Origin Portal MQDI" defaultValue="https://poptst.ons.org.br">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_Origin" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebService.serverUrlToken" description="URI pop" defaultValue="https://poptst.ons.org.br/ons.pop.federation/oauth2/token">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_TokenURL" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceConnectionString" description="String de Conexão dos Serviços com o Banco de Dados SQL" defaultValue="">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_StringConexaoMQDI" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceLog4NetCaminhoAppLogs" description="Caminho e nome do arquivo de log" defaultValue="App_Logs\\WebService_Logs.log">
+    <parameterEntry kind="XmlFile" match="/*[local-name()='log4net']/*[local-name()='appender']/*[local-name()='param'][@name='File']/@value" scope="log4net.config" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceLog4NetNivelLog" description="Nível de Log (DEBUG ou OFF)" defaultValue="DEBUG">
+    <parameterEntry kind="XmlFile" match="/*[local-name()='log4net']/*[local-name()='root']/*[local-name()='level']/@value" scope="log4net.config" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceNumArquivosLog4Net" description="Numero de arquivos de log" defaultValue="25">
+    <parameterEntry kind="XmlFile" match="/*[local-name()='log4net']/*[local-name()='appender']/*[local-name()='maxSizeRollBackups']/@value" scope="log4net.config" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceSharepointConfigBaseURL" description="Configuração da URL do Sharepoint do GED" defaultValue="http://intranet">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_SharepointURL" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceSharepointConfigDestinationLibrary" description="Configuração da Biblioteca de Destino do Sharepoint do GED" defaultValue="PortalMQDI">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_DestinationLibrary" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceSharepointConfigPassword" description="Configuração da Senha de Usuário do Sharepoint do GED" defaultValue="">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_SharepointPassword" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceSharepointConfigSubFolder" description="Configuração da SubPasta do Sharepoint do GED" defaultValue="Teste/Portal_MQDI">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_SharepointSubfolder" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceSharepointConfigUsername" description="Configuração do Nome do Usuário Sharepoint do GED" defaultValue="">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_SharepointUser" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceTamanhoArquivoLog4Net" description="Tamanho do arquivo de log" defaultValue="8MB">
+    <parameterEntry kind="XmlFile" match="/*[local-name()='log4net']/*[local-name()='appender']/*[local-name()='maximumFileSize']/@value" scope="log4net.config" />
+  </parameter>
+  <parameter name="PortalMQDIWebServiceVersao" description="Versão da aplicação" defaultValue="2.0.0">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_versaoPORTALMQDI" scope="appsettings.json" />
+  </parameter>
+  <parameter name="SINtegreProxy_NotificacaoApi" description="AppSettings &gt; NotificacaoApi" defaultValue="http://sintegre-nlb.dsv.ons.org.br/ONS.NotificationAPI/">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_NotificacaoApi" scope="appsettings.json" />
+  </parameter>
+  <parameter name="urlServiceCEPEL" description="Serviço do CEPEL para consulta de medidas do REGER" defaultValue="http://localhost/">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_ServicoCEPEL" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebService.AWS_AccessKey" description="AWS_AccessKey" defaultValue="AKIAW65H4EUC643PPVN2">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_AWSAccessKey" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebService.AWS_BucketName" description="AWS_BucketName" defaultValue="ons-mqdi-tst">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_AWSBucketName" scope="appsettings.json" />
+  </parameter>
+  <parameter name="PortalMQDIWebService.AWS_Region" description="Region" defaultValue="us-east-1">
+    <parameterEntry kind="TextFile" match="PlaceHolderFor_AWSRegion" scope="appsettings.json" />
+  </parameter>
+</parameters>
