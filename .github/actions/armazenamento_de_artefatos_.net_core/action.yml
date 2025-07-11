@@ -1,0 +1,17 @@
+name: Armazenamento de Artefatos .Net Core
+inputs:
+  ArtifactName:
+    required: true
+    description: The name of the artifact to create in the publish location.
+  PublishPath:
+    required: true
+runs:
+  using: composite
+  steps:
+  - name: Publicar Projeto
+    run: dotnet publish ${{ inputs.PublishPath }} -c Release /p:PublishProfile=Properties\PublishProfiles\WebDeployPackage_ONS.pubxml --no-restore
+    shell: bash
+  - name: Armazenar Artefatos
+    uses: actions/upload-artifact@v4.1.0
+    with:
+      path: "${{ inputs.PublishPath }}/BuildPackageResult"

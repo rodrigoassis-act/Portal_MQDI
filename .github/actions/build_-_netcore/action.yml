@@ -1,0 +1,66 @@
+name: Build - netCore
+inputs:
+  ConfigurationBuild:
+    required: true
+    description: Configuration build a ser utilizada pelas tarefas dotnet
+  dotnet_version:
+    required: true
+    description: Specify exact version of .NET Core SDK or runtime to install.<br/>Find the value of `version-sdk` for installing SDK, or `version-runtime` for installing Runtime from any releases [here](https://github.com/dotnet/core/blob/master/release-notes/releases.json)
+  NugetConfig_Path:
+    required: true
+    description: The NuGet.config in your repository that specifies the feeds from which to restore packages.
+  OutputArtifactsPath:
+    required: true
+    description: Caminho onde serão colocados os publicáveis do build
+  ProjectName:
+    required: true
+    description: The name of the artifact to create in the publish location.
+  ProjectToPublish_Path:
+    required: true
+    description: The path to the csproj file(s) to use. You can use wildcards (e.g. **/*.csproj for all .csproj files in all subfolders).
+  Solution_Path:
+    required: true
+    description: The path to the csproj file(s) to use. You can use wildcards (e.g. **/*.csproj for all .csproj files in all subfolders).
+  TargetPublish:
+    required: true
+    description: 'Tipo de Publicacação. Valores possíveis: IIS ou Openshift'
+runs:
+  using: composite
+  steps:
+  - name: 'Echo Tipo de Publicacao: ${{ inputs.TargetPublish }}'
+    run: |-
+      echo Tipo de Publicacao: ${{ inputs.TargetPublish }}
+
+      echo Use the environment variables input below to pass secret variables to this script
+    shell: bash
+#   # This item has no matching transformer
+#   - environment: {}
+#     displayName: Install .NET Core sdk ${{ inputs.dotnet_version }}
+#     alwaysRun: false
+#     continueOnError: false
+#     enabled: true
+#     inputs:
+#       packageType: sdk
+#       version: "${{ inputs.dotnet_version }}"
+#       includePreviewVersions: false
+#       installationPath: "${{ runner.tool_cache }}/dotnet"
+#       performMultiLevelLookup: false
+#     task: aaae7256-7898-45d3-9cb5-176b752bf000@1
+  - name: Restaurar Pacotes Nuget
+    run: dotnet restore ${{ inputs.Solution_Path }} --configfile "${{ inputs.NugetConfig_Path }}" --verbosity "Detailed"
+    shell: bash
+  - name: Compilar Projeto .Net Core
+    run: dotnet build ${{ inputs.Solution_Path }} /p:configuration=${{ inputs.ConfigurationBuild }}
+    shell: bash
+  - name: Publicar Projeto .Net Core (IIS)
+    if: and(${{ and(succeeded(), eq(env.targetpublish, 'iis')) }}, false)()
+    run: dotnet publish ${{ inputs.ProjectToPublish_Path }} -c ${{ inputs.ConfigurationBuild }} /p:PublishProfile=Properties\PublishProfiles\IISProfile.pubxml -o ${{ inputs.OutputArtifactsPath }}
+    shell: bash
+  - name: Publicar Projeto .Net Core (Openshift)
+    if: success() && env.TargetPublish == 'Openshift'
+    run: dotnet publish ${{ inputs.ProjectToPublish_Path }} -c ${{ inputs.ConfigurationBuild }} -o ${{ inputs.OutputArtifactsPath }}
+    shell: bash
+  - name: 'Publish Artifact: ${{ inputs.ProjectName }}'
+    uses: actions/upload-artifact@v4.1.0
+    with:
+      path: "${{ runner.temp }}"

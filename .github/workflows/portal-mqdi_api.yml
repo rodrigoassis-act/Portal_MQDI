@@ -1,0 +1,24 @@
+name: PortalMQDI/Portal-MQDI_API
+on:
+  workflow_dispatch:
+env:
+  system_debug: 'false'
+jobs:
+  Job_1:
+    name: Job - Build
+    runs-on:
+      - self-hosted
+      - Default
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.1.0
+    - uses: "./.github/actions/build_-_netcore"
+      with:
+        NugetConfig_Path: nuget.config
+        OutputArtifactsPath: "${{ runner.temp }}"
+        ProjectName: ONS.PortalMQDI.Api
+        ProjectToPublish_Path: ONS.PortalMQDI.Api/ONS.PortalMQDI.Api.csproj
+    - uses: "./.github/actions/armazenamento_de_artefatos_.net_core"
+      with:
+        ArtifactName: ONS.PortalMQDI.Api
+        PublishPath: ONS.PortalMQDI.Api
